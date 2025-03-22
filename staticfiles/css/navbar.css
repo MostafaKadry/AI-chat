@@ -1,0 +1,29 @@
+:root {
+    --primary-color: #FFFFFF; /* Light background */
+    --secondary-color: #F8F9FA; /* Soft gray */
+    --accent-color: #007BFF; /* A softer blue */
+    --text-color: #333333; /* Dark text for contrast */
+}
+
+.navbar {
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+.navbar-brand, .nav-link {
+    color: var(--text-color) !important;
+}
+
+.nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+.btn-custom {
+    background-color: var(--accent-color);
+    border: none;
+    color: white;
+}
+
+.btn-custom:hover {
+    background-color: #0056b3;
+}

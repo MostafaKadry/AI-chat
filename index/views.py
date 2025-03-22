@@ -115,7 +115,7 @@ class IndexView(LoginRequiredMixin, View):
             completion = self.client.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=conversation_history + [{"role": "user", "content": user_message}],
-                # max_tokens=300
+                max_tokens=300
             )
 
             ai_response = completion.choices[0].message.content.strip()

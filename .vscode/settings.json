@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/3c5e6a99-b9f6-4dcb-9760-96ae4cc0f4f5/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/VerbaGPT",
+    "appService.deploySubpath": "."
+}
