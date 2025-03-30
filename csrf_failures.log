@@ -1,0 +1,139 @@
+2025-03-22 14:18:42,254 INFO Watching for file changes with StatReloader
+2025-03-22 14:19:51,087 WARNING Not Found: /favicon.ico
+2025-03-22 14:20:16,593 WARNING Not Found: /favicon.ico
+2025-03-22 14:32:17,194 INFO Watching for file changes with StatReloader
+2025-03-22 14:34:10,881 WARNING Forbidden (CSRF cookie not set.): /login/
+2025-03-22 14:34:18,385 WARNING Forbidden (CSRF cookie not set.): /login/
+2025-03-22 14:34:23,936 WARNING Forbidden (CSRF cookie not set.): /login/
+2025-03-22 14:34:41,141 WARNING Forbidden (CSRF cookie not set.): /login/
+2025-03-29 20:38:03,383 INFO Watching for file changes with StatReloader
+2025-03-29 20:38:22,001 ERROR Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+2025-03-29 20:38:22,010 WARNING Bad Request: /
+2025-03-29 20:38:22,202 ERROR Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+2025-03-29 20:38:22,203 WARNING Bad Request: /favicon.ico
+2025-03-29 20:39:51,631 ERROR Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+2025-03-29 20:39:51,633 WARNING Bad Request: /login
+2025-03-29 20:39:51,700 ERROR Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+2025-03-29 20:39:51,702 WARNING Bad Request: /favicon.ico
+2025-03-29 20:40:05,970 ERROR Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+2025-03-29 20:40:05,972 WARNING Bad Request: /login/
+2025-03-29 20:40:06,038 ERROR Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+2025-03-29 20:40:06,040 WARNING Bad Request: /favicon.ico
+2025-03-29 20:40:10,484 ERROR Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+2025-03-29 20:40:10,486 WARNING Bad Request: /login/
+2025-03-29 20:40:10,554 ERROR Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/.venv/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+2025-03-29 20:40:10,555 WARNING Bad Request: /favicon.ico
+2025-03-29 20:40:17,155 WARNING Not Found: /favicon.ico
+2025-03-29 20:40:22,383 WARNING Forbidden (CSRF cookie not set.): /login/
+2025-03-29 20:40:31,203 WARNING Forbidden (CSRF cookie not set.): /login/
+2025-03-29 20:44:20,572 WARNING Not Found: /favicon.ico
+2025-03-29 20:44:24,585 WARNING Forbidden (CSRF cookie not set.): /login/
+2025-03-29 20:47:19,196 INFO /media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/gpt_clone/settings.py changed, reloading.
+2025-03-29 20:47:20,081 INFO Watching for file changes with StatReloader
+2025-03-29 20:47:44,671 INFO /media/mostafa/drive2/computer scinece/ITI materials ict/ai/gpt_clone/gpt_clone/settings.py changed, reloading.
+2025-03-29 20:47:45,475 INFO Watching for file changes with StatReloader
+2025-03-29 20:47:50,857 WARNING Forbidden (CSRF cookie not set.): /login/

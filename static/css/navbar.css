@@ -27,3 +27,7 @@
 .btn-custom:hover {
     background-color: #0056b3;
 }
+.navbar-toggler {
+    background-color:  #0056b3 !important;
+    /* color: white; */
+}

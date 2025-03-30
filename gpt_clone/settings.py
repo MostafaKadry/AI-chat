@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+import logging
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 from dotenv import load_dotenv
@@ -12,9 +13,21 @@ load_dotenv()
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-ALLOWED_HOSTS = ['verbagpt.azurewebsites.net', 'localhost', ]
+DEBUG = True
+# For production only.
+# ALLOWED_HOSTS = ['verbagpt.azurewebsites.net', 'localhost', ]
+# CSRF_TRUSTED_ORIGINS = ['https://verbagpt.azurewebsites.net', 
+#                         'https://*.verbagpt.azurewebsites.net']
+# CSRF_COOKIE_DOMAIN = "verbagpt.azurewebsites.net"
+# SESSION_COOKIE_DOMAIN = "verbagpt.azurewebsites.net"
+# CSRF_COOKIE_SECURE = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_FAILURE_LOG_FILE = os.path.join(BASE_DIR, 'csrf_failures.log')
+# logging.basicConfig(
+#     filename=CSRF_FAILURE_LOG_FILE,
+#     level=logging.DEBUG,
+#     format='%(asctime)s %(levelname)s %(message)s',
+# )
 
 
 # Application definition

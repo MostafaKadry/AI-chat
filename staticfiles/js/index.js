@@ -1,53 +1,168 @@
+// const host = 'https://verbagpt.azurewebsites.net/'
+
 document.addEventListener('DOMContentLoaded', function() {
     const chatContainer = document.getElementById('chatContainer');
     const messageInput = document.getElementById('messageInput');
     const chatForm = document.getElementById('chatForm');
     const typingIndicator = document.getElementById('typingIndicator');
+    const fileInput = document.getElementById('fileInput');
+    const filePreview = document.getElementById('filePreview');
+    
+    let currentFile = null;
+    
+    // Initialize chat
     scrollToBottom();
-    function addMessage(content, sender) {
-        let messageDiv = document.createElement('div');
+
+    // Add message to chat
+    function addMessage(content, sender, isFile = false, fileName = null) {
+        const messageDiv = document.createElement('div');
         messageDiv.classList.add('message', sender === 'user' ? 'user-message' : 'ai-message');
 
-        let messageContent = document.createElement('div');
+        // Add avatar
+        const avatar = document.createElement('div');
+        avatar.classList.add('message-avatar');
+        avatar.innerHTML = sender === 'user' ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
+        messageDiv.appendChild(avatar);
+
+        const contentContainer = document.createElement('div');
+        contentContainer.classList.add('message-content-container');
+
+        const messageContent = document.createElement('div');
         messageContent.classList.add('message-content');
-        messageContent.textContent = content;
 
-        let timestamp = document.createElement('div');
+        if (isFile) {
+            if (content.startsWith('data:image')) {
+                // Image file
+                const img = document.createElement('img');
+                img.src = content;
+                img.alt = fileName || 'Uploaded image';
+                img.classList.add('uploaded-file');
+                messageContent.appendChild(img);
+            } else {
+                // Other file type
+                const fileLink = document.createElement('a');
+                fileLink.href = content;
+                fileLink.textContent = fileName || 'Download file';
+                fileLink.target = '_blank';
+                fileLink.classList.add('file-link');
+                messageContent.appendChild(fileLink);
+            }
+        } else {
+            // Text message
+            messageContent.textContent = content;
+        }
+
+        const timestamp = document.createElement('div');
         timestamp.classList.add('message-timestamp');
-        timestamp.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+        timestamp.textContent = new Date().toLocaleTimeString([], { 
+            hour: '2-digit', 
+            minute: '2-digit', 
+            hour12: true 
+        });
 
-        messageDiv.appendChild(messageContent);
-        messageDiv.appendChild(timestamp);
+        contentContainer.appendChild(messageContent);
+        contentContainer.appendChild(timestamp);
+        messageDiv.appendChild(contentContainer);
         chatContainer.appendChild(messageDiv);
 
         scrollToBottom();
     }
 
+    // Scroll to bottom of chat
     function scrollToBottom() {
         chatContainer.scrollTo({
             top: chatContainer.scrollHeight,
             behavior: "smooth"
         });
-}
+    }
 
+    // Handle file selection
+    fileInput.addEventListener('change', function(e) {
+        if (e.target.files.length > 0) {
+            currentFile = e.target.files[0];
+            showFilePreview(currentFile);
+        }
+    });
+
+    // Show file preview before sending
+    function showFilePreview(file) {
+        filePreview.innerHTML = '';
+        
+        const previewDiv = document.createElement('div');
+        previewDiv.classList.add('file-preview');
+        
+        const fileName = document.createElement('span');
+        fileName.textContent = file.name;
+        fileName.classList.add('file-name');
+        
+        const removeBtn = document.createElement('button');
+        removeBtn.innerHTML = '<i class="fas fa-times"></i>';
+        removeBtn.classList.add('btn', 'btn-sm', 'btn-outline-danger', 'remove-file');
+        removeBtn.addEventListener('click', clearFileSelection);
+        
+        previewDiv.appendChild(fileName);
+        previewDiv.appendChild(removeBtn);
+        filePreview.appendChild(previewDiv);
+    }
+
+    // Clear file selection
+    function clearFileSelection() {
+        fileInput.value = '';
+        currentFile = null;
+        filePreview.innerHTML = '';
+    }
+
+    // Send message to server
     async function sendMessage(event) {
         event.preventDefault();
         const userMessage = messageInput.value.trim();
-        if (!userMessage) return;
+        
+        // Don't send if no message and no file
+        if (!userMessage && !currentFile) return;
 
+        // Disable inputs while sending
         messageInput.disabled = true;
-        typingIndicator.style.display = 'inline-block';
-        addMessage(userMessage, 'user');
+        fileInput.disabled = true;
+        typingIndicator.style.display = 'block';
+        
+        // Add user message to chat if text exists
+        if (userMessage) {
+            addMessage(userMessage, 'user');
+        }
+
+        // Handle file upload if file exists
+        let fileUrl = null;
+        if (currentFile) {
+            try {
+                // First show the file in chat (preview)
+                const fileContent = await readFileAsDataURL(currentFile);
+                addMessage(fileContent, 'user', true, currentFile.name);
+                
+                // In a real app, you would upload the file to your server here
+                // fileUrl = await uploadFile(currentFile);
+            } catch (error) {
+                console.error('Error reading file:', error);
+                addMessage('Failed to process file', 'ai');
+            }
+        }
+
+        // Clear inputs
         messageInput.value = '';
+        clearFileSelection();
 
         try {
-            const response = await fetch('http://localhost:8000/', {
+            // Prepare form data (for both text and file)
+            const formData = new FormData();
+            if (userMessage) formData.append('message', userMessage);
+            if (currentFile) formData.append('file', currentFile);
+
+            // Send to server
+            const response = await fetch('http://localhost:8070/', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
                     'X-CSRFToken': getCookie('csrftoken')
                 },
-                body: JSON.stringify({ message: userMessage })
+                body: formData
             });
 
             const data = await response.json();
@@ -60,12 +175,25 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error:', error);
             addMessage('Something went wrong. Please try again.', 'ai');
         } finally {
+            // Re-enable inputs
             messageInput.disabled = false;
+            fileInput.disabled = false;
             typingIndicator.style.display = 'none';
             messageInput.focus();
         }
     }
 
+    // Helper to read file as Data URL
+    function readFileAsDataURL(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+        });
+    }
+
+    // Helper to get CSRF token
     function getCookie(name) {
         let cookieValue = null;
         if (document.cookie) {
@@ -79,5 +207,14 @@ document.addEventListener('DOMContentLoaded', function() {
         return cookieValue;
     }
 
+    // Event listeners
     chatForm.addEventListener('submit', sendMessage);
+    
+    // Allow pressing Enter to send, but Shift+Enter for new line
+    messageInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendMessage(e);
+        }
+    });
 });
